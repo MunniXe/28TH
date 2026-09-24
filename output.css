@@ -418,9 +418,17 @@ html {
 }
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: 'DM Sans', sans-serif;
+}
+button, input {
+  font: inherit;
+}
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }
 .is-hidden {
   display: none;
@@ -448,10 +456,14 @@ body {
   letter-spacing: 0;
 }
 .display-title {
-  font-size: clamp(4.5rem, 12vw, 10.5rem);
+  font-size: clamp(4rem, 12vw, 10.5rem);
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 .section-title {
-  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  font-size: clamp(3.3rem, 8vw, 7.5rem);
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 .display-title em, .section-title em {
   color: var(--rust);
@@ -498,6 +510,7 @@ body {
   color: var(--paper);
 }
 .hero {
+  min-height: 100svh;
   background: var(--sage);
 }
 .grain {
@@ -546,6 +559,9 @@ body {
 .section-shell {
   background: var(--paper);
 }
+.quote-stage, .comment-panel {
+  min-width: 0;
+}
 .quote-card {
   min-height: 24rem;
   padding: clamp(2rem, 6vw, 5rem);
@@ -563,6 +579,7 @@ body {
 }
 .quote-text {
   max-width: 12ch;
+  overflow-wrap: anywhere;
   font-family: 'Instrument Serif', serif;
   font-size: clamp(2.5rem, 5vw, 5.2rem);
   line-height: .93;
@@ -639,14 +656,85 @@ body {
     transform: translateX(0);
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 767px) {
+  .hero {
+    min-height: 100svh;
+    padding-top: 7rem;
+  }
   .hero-stamp {
-    right: 8%;
-    top: 22%;
-    font-size: 6rem;
+    right: 6%;
+    top: 15%;
+    font-size: clamp(5rem, 24vw, 8rem);
+  }
+  .hero-copy {
+    max-width: 30rem;
+    font-size: .98rem;
+  }
+  .scroll-cue {
+    margin-top: 3.5rem;
   }
   .quote-card {
-    min-height: 20rem;
+    min-height: 21rem;
+    padding: 2rem;
+  }
+  .quote-text {
+    max-width: 11ch;
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+  .comment-panel {
+    border-left: 0;
+    border-top: 1px solid #c8bfb3;
+    padding: 2rem 0 0;
+  }
+  .letter-section .button, .archive-section .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .lock-panel {
+    max-width: 100%;
+  }
+  .lock-panel .display-title {
+    font-size: clamp(3.8rem, 18vw, 5.5rem);
+  }
+  #unlock-form {
+    flex-direction: column;
+  }
+  .secret-input, #unlock-form .button {
+    width: 100%;
+  }
+  .hero {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .hero-stamp {
+    top: 13%;
+    right: 1.5rem;
+    opacity: .8;
+  }
+  .display-title {
+    font-size: clamp(3.8rem, 18vw, 6rem);
+  }
+  .section-title {
+    font-size: clamp(3.1rem, 16vw, 5rem);
+  }
+  .quote-card {
+    min-height: 19rem;
+    padding: 1.5rem;
+  }
+  .quote-mark {
+    font-size: 4.5rem;
+  }
+  .quote-text {
+    font-size: clamp(2.25rem, 13vw, 3.5rem);
+  }
+  .section-shell, .letter-section, .archive-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .comment-copy {
+    font-size: 2.1rem;
   }
 }
 @property --tw-border-style {

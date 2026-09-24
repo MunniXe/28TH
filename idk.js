@@ -17,10 +17,25 @@ unlockForm.addEventListener('submit', (event) => {
 });
 
 const quotes = [
-	{ text: 'You cannot pour from an empty cup.', comment: 'You say this like a reminder, but I hear it as permission to rest.' },
-	{ text: 'It is what it is, but it will not always be this way.', comment: 'The most Precious kind of optimism: honest enough to name the hard thing, hopeful enough to stay.' },
-	{ text: 'Do it scared.', comment: 'You make bravery sound less like a performance and more like a Tuesday afternoon.' },
-	{ text: 'Everything will make sense later.', comment: 'I borrow this one on the days that feel like loose pages.' }
+	{ text: 'Ourlationship', comment: 'One of your classics.' },
+	{ text: 'Had I known', comment: 'The beginning of a thought I still remember.' },
+	{ text: 'Kilomene', comment: 'A word that could only belong to you.' },
+	{ text: 'You never asked', comment: 'Fair point. I should have.' },
+	{ text: "It's not important", comment: 'You say this, and somehow it becomes important.' },
+	{ text: 'I guess bro', comment: 'The official soundtrack to accepting the situation.' },
+	{ text: "I'll bite you", comment: 'Affection, Precious-style.' },
+	{ text: 'I pity your future wife', comment: 'A warning I choose to treasure.' },
+	{ text: 'Nothing for you', comment: 'The answer is always somehow something.' },
+	{ text: 'Bia', comment: 'One word. Immediate attention.' },
+	{ text: "Let's make a bet", comment: 'You never make just one bet.' },
+	{ text: "Let's make another bet", comment: 'And there it is.' },
+	{ text: "It's morning", comment: 'A whole mood in two words.' },
+	{ text: 'Pick my nails', comment: 'An honour I do not take lightly.' },
+	{ text: "Don't worry about my nails", comment: 'Noted. Still worrying a little.' },
+	{ text: "Chai you're suffering", comment: 'The sympathy is real. The delivery is unforgettable.' },
+	{ text: 'Fra boy', comment: 'A diagnosis, probably.' },
+	{ text: 'Fine boy you like strawberries ew', comment: 'The judgment arrived before the explanation.' },
+	{ text: 'Now we know the past what do you want to do about the future', comment: 'The question I keep coming back to.' }
 ];
 let quoteIndex = 0;
 const quoteCard = document.querySelector('#quote-card');
