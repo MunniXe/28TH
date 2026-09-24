@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import "tailwindcss";
+:root { --paper: #f6f0e7; --ink: #25221f; --rust: #a74d35; --sage: #bbc1a9; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; }
+.is-hidden { display: none; }
+.lock-panel { animation: rise .8s ease both; }
+.lock-panel::before { content: '✦'; display: block; color: var(--rust); font-size: 1.5rem; }
+.eyebrow { color: var(--rust); font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; }
+.display-title, .section-title { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; line-height: .88; letter-spacing: 0; }
+.display-title { font-size: clamp(4.5rem, 12vw, 10.5rem); }
+.section-title { font-size: clamp(3.8rem, 8vw, 7.5rem); }
+.display-title em, .section-title em { color: var(--rust); font-style: italic; }
+.secret-input { border: 1px solid #c8bfb3; background: transparent; padding: .85rem 1rem; outline: none; }
+.secret-input:focus { border-color: var(--rust); box-shadow: 0 0 0 3px #a74d3520; }
+.button { display: inline-flex; align-items: center; gap: .65rem; border: 1px solid var(--ink); padding: .8rem 1.1rem; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s, background .2s, color .2s; }
+.button:hover { transform: translateY(-3px); }
+.button-dark { background: var(--ink); color: var(--paper); }
+.button-dark:hover { background: var(--rust); border-color: var(--rust); }
+.button-light { background: transparent; }
+.button-light:hover { background: var(--ink); color: var(--paper); }
+.hero { background: var(--sage); }
+.grain { position: absolute; inset: 0; opacity: .28; background-image: radial-gradient(#25221f 0.7px, transparent .7px); background-size: 7px 7px; mix-blend-mode: multiply; }
+.hero-stamp { position: absolute; right: 8%; top: 16%; color: var(--rust); font-family: 'Instrument Serif', serif; font-size: clamp(5rem, 14vw, 13rem); line-height: .65; transform: rotate(9deg); }
+.hero-stamp span { display: inline-block; font-family: 'DM Mono', monospace; font-size: .62rem; letter-spacing: .18em; line-height: 1; text-transform: uppercase; transform: rotate(-9deg); }
+.hero-copy { font-size: 1.05rem; line-height: 1.7; }
+.scroll-cue { color: var(--ink); font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; }
+.scroll-line { display: inline-block; width: 3rem; border-top: 1px solid currentColor; }
+.section-shell { background: var(--paper); }
+.quote-card { min-height: 24rem; padding: clamp(2rem, 6vw, 5rem); background: var(--rust); color: #f8efe5; display: flex; flex-direction: column; justify-content: space-between; animation: fade .4s ease both; }
+.quote-mark { font-family: 'Instrument Serif', serif; font-size: 6rem; line-height: .4; }
+.quote-text { max-width: 12ch; font-family: 'Instrument Serif', serif; font-size: clamp(2.5rem, 5vw, 5.2rem); line-height: .93; }
+.quote-number { align-self: flex-end; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: .18em; }
+.icon-button { display: grid; height: 2.6rem; width: 2.6rem; place-items: center; border: 1px solid #c8bfb3; font-size: 1.2rem; transition: background .2s, color .2s; }
+.icon-button:hover, .icon-button.active { background: var(--ink); color: var(--paper); }
+.dot { height: 4px; width: 1.5rem; background: #c8bfb3; transition: width .2s, background .2s; }
+.dot.active { width: 3rem; background: var(--rust); }
+.comment-panel { border-left: 1px solid #c8bfb3; padding: 1rem 0 1rem clamp(1.5rem, 4vw, 4rem); }
+.comment-copy { max-width: 25rem; font-family: 'Instrument Serif', serif; font-size: clamp(1.9rem, 3vw, 3rem); line-height: 1.05; }
+.letter-section { background: #25221f; color: var(--paper); }
+.letter-section .eyebrow { color: #d17a60; }
+.letter-section .text-stone-600 { color: #b9b0a5; }
+.archive-section { background: #d9cbb8; }
+@keyframes rise { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade { from { opacity: 0; transform: translateX(.8rem); } to { opacity: 1; transform: translateX(0); } }
+@media (max-width: 640px) { .hero-stamp { right: 8%; top: 22%; font-size: 6rem; } .quote-card { min-height: 20rem; } }
