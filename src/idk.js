@@ -8,7 +8,7 @@ const passwordError = document.querySelector('#password-error');
 unlockForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	if (passwordInput.value.trim().toLowerCase() !== expectedPassword) {
-		passwordError.textContent = 'That is not the secret. Try again.';
+		passwordError.textContent = "It's not hard to guess, but that is not the secret. Try again.";
 		passwordInput.select();
 		return;
 	}
@@ -38,24 +38,24 @@ function launchConfetti(amount) {
 
 const quotes = [
 	{ text: 'Ourlationship', comment: 'One of your classics.' },
-	{ text: 'Had I known', comment: 'The beginning of a thought I still remember.' },
-	{ text: 'Kilomene', comment: 'A word that could only belong to you.' },
-	{ text: 'You never asked', comment: 'Fair point. I should have.' },
-	{ text: "It's not important", comment: 'You say this, and somehow it becomes important.' },
+	{ text: 'Had I known', comment: 'Wallahi, put the fries in the bag.' },
+	{ text: 'Kilomene', comment: 'Kilolo 😭' },
+	{ text: 'You never asked', comment: 'Fair point but nahhhh' },
+	{ text: "It's not important", comment: 'Words I can never believe from anyone.' },
 	{ text: 'I guess bro', comment: 'The official soundtrack to accepting the situation.' },
-	{ text: "I'll bite you", comment: 'Affection, Precious-style.' },
+	{ text: "I'll bite you", comment: 'Come and bite me na 😡' },
 	{ text: 'I pity your future wife', comment: 'A warning I choose to treasure.' },
 	{ text: 'Nothing for you', comment: 'The answer is always somehow something.' },
-	{ text: 'Bia', comment: 'One word. Immediate attention.' },
+	{ text: 'Bia', comment: 'Maaaaaa :)' },
 	{ text: "Let's make a bet", comment: 'You never make just one bet.' },
 	{ text: "Let's make another bet", comment: 'And there it is.' },
-	{ text: "It's morning", comment: 'A whole mood in two words.' },
+	{ text: "It's morning", comment: 'Timezones are weird I always forget.' },
 	{ text: 'Pick my nails', comment: 'An honour I do not take lightly.' },
-	{ text: "Don't worry about my nails", comment: 'Noted. Still worrying a little.' },
-	{ text: "Chai you're suffering", comment: 'The sympathy is real. The delivery is unforgettable.' },
-	{ text: 'Fra boy', comment: 'A diagnosis, probably.' },
-	{ text: 'Fine boy you like strawberries ew', comment: 'The judgment arrived before the explanation.' },
-	{ text: 'Now we know the past what do you want to do about the future', comment: 'The question I keep coming back to.' }
+	{ text: "Don't worry about my nails", comment: 'Noted.' },
+	{ text: "Chai you're suffering", comment: "Nbl, This isn't the life I had in mind." },
+	{ text: 'Fra boy', comment: 'Fra girl.' },
+	{ text: 'Fine boy you like strawberries ew', comment: 'You like chocolate icecream, Opinion Invalidated.' },
+	{ text: 'Now we know the past what do you want to do about the future', comment: "two twos my poo poos fam, you're a Gerbert" }
 ];
 let quoteIndex = 0;
 const quoteCard = document.querySelector('#quote-card');
