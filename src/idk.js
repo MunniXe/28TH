@@ -93,15 +93,15 @@ quoteCard.addEventListener('touchend', (event) => {
 }, { passive: true });
 
 document.querySelector('#download-letter').addEventListener('click', () => {
-	const letter = `The Nightmare Experience of Pain\n\nFor Precious, on the 28th September\n\nHappy birthday.\n\nThis is a small letter for all the things I never want to leave unsaid. Thank you for the words you give me, the laughter you leave behind, and the way you make even the difficult days feel survivable.\n\nWith all my feeling.\n`;
-	const blob = new Blob([letter], { type: 'text/plain;charset=utf-8' });
-	const link = document.createElement('a');
-	link.href = URL.createObjectURL(blob);
-	link.download = 'Nightmare Experience of Pain.txt';
-	link.click();
-	URL.revokeObjectURL(link.href);
-	launchConfetti(16);
-	document.querySelector('#letter-status').textContent = 'Your letter is on its way.';
+	const letter = `The Nightmare Experience of Pain\n\nFor Precious, on the 28th September\n\nHappy birthday.\n\nThis is a little letter for you to keep. Thank you for your words, your laughter, and for being so wonderfully, unmistakably you.\n\nWith love.\n`;
+	const letterUrl = URL.createObjectURL(new Blob([letter], { type: 'text/plain;charset=utf-8' }));
+	const downloadLink = document.createElement('a');
+	downloadLink.href = letterUrl;
+	downloadLink.download = 'The Nightmare Experience of Pain.txt';
+	downloadLink.click();
+	URL.revokeObjectURL(letterUrl);
+	document.querySelector('#letter-status').textContent = 'Letter downloaded. Please enjoy responsibly 💌';
+	launchConfetti(14);
 });
 
 const closingScreen = document.querySelector('.closing-screen');

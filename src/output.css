@@ -10,12 +10,9 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-rose-700: oklch(51.4% 0.222 16.935);
-    --color-stone-300: oklch(86.9% 0.005 56.366);
     --color-stone-400: oklch(70.9% 0.01 56.259);
-    --color-stone-500: oklch(55.3% 0.013 58.071);
     --color-stone-600: oklch(44.4% 0.011 73.639);
     --spacing: 0.25rem;
-    --container-xs: 20rem;
     --container-md: 28rem;
     --container-xl: 36rem;
     --container-4xl: 56rem;
@@ -203,9 +200,6 @@
   .z-50 {
     z-index: 50;
   }
-  .mx-auto {
-    margin-inline: auto;
-  }
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
@@ -260,17 +254,11 @@
   .max-w-xl {
     max-width: var(--container-xl);
   }
-  .max-w-xs {
-    max-width: var(--container-xs);
-  }
   .min-w-0 {
     min-width: 0px;
   }
   .flex-1 {
     flex: 1;
-  }
-  .flex-col {
-    flex-direction: column;
   }
   .place-items-center {
     place-items: center;
@@ -293,18 +281,8 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
-  .gap-10 {
-    gap: calc(var(--spacing) * 10);
-  }
   .overflow-hidden {
     overflow: hidden;
-  }
-  .border-t {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 1px;
-  }
-  .border-stone-300 {
-    border-color: var(--color-stone-300);
   }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
@@ -314,9 +292,6 @@
   }
   .py-24 {
     padding-block: calc(var(--spacing) * 24);
-  }
-  .pt-10 {
-    padding-top: calc(var(--spacing) * 10);
   }
   .pt-28 {
     padding-top: calc(var(--spacing) * 28);
@@ -335,14 +310,6 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
-  .leading-6 {
-    --tw-leading: calc(var(--spacing) * 6);
-    line-height: calc(var(--spacing) * 6);
-  }
-  .tracking-\[0\.24em\] {
-    --tw-tracking: 0.24em;
-    letter-spacing: 0.24em;
-  }
   .tracking-\[0\.28em\] {
     --tw-tracking: 0.28em;
     letter-spacing: 0.28em;
@@ -353,9 +320,6 @@
   .text-stone-400 {
     color: var(--color-stone-400);
   }
-  .text-stone-500 {
-    color: var(--color-stone-500);
-  }
   .text-stone-600 {
     color: var(--color-stone-600);
   }
@@ -363,20 +327,8 @@
     text-transform: uppercase;
   }
   @media (width >= 40rem) {
-    .sm\:flex-row {
-      flex-direction: row;
-    }
-    .sm\:items-end {
-      align-items: flex-end;
-    }
-    .sm\:justify-between {
-      justify-content: space-between;
-    }
     .sm\:px-10 {
       padding-inline: calc(var(--spacing) * 10);
-    }
-    .sm\:text-right {
-      text-align: right;
     }
   }
   @media (width >= 64rem) {
@@ -651,17 +603,70 @@ button, a {
   font-size: 1.8rem;
   line-height: 1.15;
 }
-.letter-section {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-  background: var(--dark);
-  color: var(--paper);
-}
-.letter-section .text-stone-600 {
-  color: #b9b0a5;
-}
 .archive-section {
   background: var(--blue);
+}
+.letter-section {
+  background: var(--pink);
+}
+.letter-content {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 6vw, 4rem);
+  border: 2px solid var(--ink);
+  border-radius: 1rem;
+  background: var(--paper);
+  box-shadow: 8px 8px 0 var(--ink);
+  transform: rotate(-.6deg);
+}
+.letter-content .section-title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+}
+.letter-description {
+  max-width: 28rem;
+  margin-top: 1.5rem;
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+}
+.letter-status {
+  min-height: 1.5rem;
+  margin-top: .75rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+}
+.cryptic-note {
+  display: flex;
+  min-height: 55svh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  background: var(--yellow);
+  text-align: center;
+}
+.cryptic-note p {
+  max-width: 16ch;
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 600;
+  line-height: .9;
+  transform: rotate(-2deg);
+}
+.cryptic-note span {
+  margin-top: 1.75rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.cryptic-note em {
+  margin-top: .6rem;
+  color: var(--rust);
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  font-style: normal;
+  transform: rotate(2deg);
 }
 @keyframes rise {
   from {
@@ -833,7 +838,7 @@ button, a {
   .comment-panel {
     margin-top: 1.5rem;
   }
-  .letter-section .button, .archive-section .button {
+  .archive-section .button {
     width: 100%;
     justify-content: flex-start;
   }
@@ -848,8 +853,18 @@ button, a {
   #unlock-form {
     flex-direction: column;
   }
-  .secret-input, #unlock-form .button {
+  .secret-input {
     width: 100%;
+    min-height: 3rem;
+  }
+  #unlock-form .button {
+    width: auto;
+    min-width: 8rem;
+    min-height: 2.8rem;
+    align-self: center;
+    justify-content: center;
+    margin-top: .35rem;
+    padding: .55rem 1.5rem;
   }
   .hero {
     padding-right: 1.5rem;
@@ -876,7 +891,7 @@ button, a {
   .quote-text {
     font-size: clamp(2.25rem, 13vw, 3.5rem);
   }
-  .section-shell, .letter-section, .archive-section {
+  .section-shell, .archive-section {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
@@ -892,15 +907,6 @@ button, a {
     transition-duration: .01ms !important;
   }
 }
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
-@property --tw-leading {
-  syntax: "*";
-  inherits: false;
-}
 @property --tw-tracking {
   syntax: "*";
   inherits: false;
@@ -908,8 +914,6 @@ button, a {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-border-style: solid;
-      --tw-leading: initial;
       --tw-tracking: initial;
     }
   }
