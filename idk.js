@@ -12,9 +12,29 @@ unlockForm.addEventListener('submit', (event) => {
 		passwordInput.select();
 		return;
 	}
-	lockScreen.remove();
-	siteContent.classList.remove('is-hidden');
+	lockScreen.classList.add('unlocking');
+	launchConfetti(28);
+	setTimeout(() => {
+		lockScreen.remove();
+		siteContent.classList.remove('is-hidden');
+	}, 650);
 });
+
+function launchConfetti(amount) {
+	const layer = document.querySelector('#celebration-layer');
+	const colors = ['#a74d35', '#25221f', '#bbc1a9', '#8fb8de', '#d9cbb8'];
+	for (let index = 0; index < amount; index += 1) {
+		const piece = document.createElement('span');
+		piece.className = 'confetti-piece';
+		piece.style.setProperty('--confetti-color', colors[index % colors.length]);
+		piece.style.setProperty('--confetti-delay', `${Math.random() * 180}ms`);
+		piece.style.setProperty('--confetti-x', `${(Math.random() - .5) * 90}vw`);
+		piece.style.setProperty('--confetti-y', `${(Math.random() * 70 + 20) * -1}vh`);
+		piece.style.setProperty('--confetti-rotate', `${Math.random() * 720 - 360}deg`);
+		layer.appendChild(piece);
+		setTimeout(() => piece.remove(), 1600);
+	}
+}
 
 const quotes = [
 	{ text: 'Ourlationship', comment: 'One of your classics.' },
@@ -63,6 +83,15 @@ quoteDots.addEventListener('click', (event) => {
 });
 renderQuote(0);
 
+let touchStartX = 0;
+quoteCard.addEventListener('touchstart', (event) => {
+	touchStartX = event.changedTouches[0].screenX;
+}, { passive: true });
+quoteCard.addEventListener('touchend', (event) => {
+	const distance = event.changedTouches[0].screenX - touchStartX;
+	if (Math.abs(distance) > 45) renderQuote(quoteIndex + (distance < 0 ? 1 : -1));
+}, { passive: true });
+
 document.querySelector('#download-letter').addEventListener('click', () => {
 	const letter = `The Nightmare Experience of Pain\n\nFor Precious, on the 28th September\n\nHappy birthday.\n\nThis is a small letter for all the things I never want to leave unsaid. Thank you for the words you give me, the laughter you leave behind, and the way you make even the difficult days feel survivable.\n\nWith all my feeling.\n`;
 	const blob = new Blob([letter], { type: 'text/plain;charset=utf-8' });
@@ -71,5 +100,15 @@ document.querySelector('#download-letter').addEventListener('click', () => {
 	link.download = 'Nightmare Experience of Pain.txt';
 	link.click();
 	URL.revokeObjectURL(link.href);
+	launchConfetti(16);
 	document.querySelector('#letter-status').textContent = 'Your letter is on its way.';
 });
+
+const closingScreen = document.querySelector('.closing-screen');
+const closingObserver = new IntersectionObserver(([entry]) => {
+	if (entry.isIntersecting) {
+		closingScreen.classList.add('is-visible');
+		closingObserver.disconnect();
+	}
+}, { threshold: 0.35 });
+closingObserver.observe(closingScreen);
